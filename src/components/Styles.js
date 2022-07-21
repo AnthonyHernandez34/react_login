@@ -27,3 +27,20 @@ background: liner-gradient(0deg, rgba(0, 0, 0, 0.6) rgba(0, 0, 0, 0.6)), url(${b
 background-size:cover;
 background-attachment:fixed;
 `;
+
+//Home Css
+export const StyledTitle = styled.h2`
+font-size: ${(props) => props.size}px;
+text-align: center;
+color: ${(props) => props.color ? props.color : props.color.primary};
+padding: 5px;
+margin-bottom: 20px;
+`;
+
+export const StyledSubTitle = styled.p`
+font-size: ${(props) => props.size}px;
+text-align: center;
+color: ${(props) => props.color ? props.color : props.color.primary};
+padding: 5px;
+margin-bottom: 25px;
+`
