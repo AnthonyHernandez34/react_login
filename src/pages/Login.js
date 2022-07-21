@@ -13,7 +13,7 @@ import * as Yup from 'yup'
 import {FiMail,FiLock} from 'react-icons/fi';
 
 //Loader
-import Loader from 'react-loader-spinner';
+import {ThreeDots} from 'react-loader-spinner';
 
 
 const Login = () => {
@@ -66,11 +66,11 @@ const Login = () => {
                             )}
 
                             {isSubmitting && (
-                             <Loader 
+                             <ThreeDots 
                              type= "ThreeDots"
                              color={colors.theme}
-                             height={80}
-                             width={80}
+                             height={49}
+                             width={100}
                              />
                             )}
 
@@ -89,4 +89,4 @@ const Login = () => {
     );
 };
 
-export default Login
+export default Login;
