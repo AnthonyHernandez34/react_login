@@ -5,6 +5,9 @@ import Login from './pages/Login';
 //styles
 import {StyledContainer} from './components/Styles';
 
+// Loader
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 //buttons
 import {
   BrowserRouter as Router,
