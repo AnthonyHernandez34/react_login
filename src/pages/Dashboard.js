@@ -2,6 +2,9 @@ import { StyledTitle, StyledSubTitle, Avatar, StyledButton, ButtonGroup, StyledF
 //logo
 import Logo from "./../assets/logo.png"
 
+//auth & logout 
+import { connect } from "react-redux";
+
 const Dashboard = () => {
     return (
         <div>

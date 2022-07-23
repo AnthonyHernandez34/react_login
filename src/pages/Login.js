@@ -1,3 +1,6 @@
+//React
+import React,{useState} from 'react';
+
 //Styled Components
 import {StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel, Avatar , StyledTitle , colors , ButtonGroup, ExtraText, TextLink , CopyrightText} from './../components/Styles';
 
@@ -10,13 +13,35 @@ import {TextInput} from '../components/FormLibs';
 import * as Yup from 'yup'
 
 //Icon
-import {FiMail,FiLock} from 'react-icons/fi';
+import {FiGlobe,FiLock} from 'react-icons/fi';
 
 //Loader
 import {ThreeDots} from 'react-loader-spinner';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/userSlice';
 
 
 const Login = () => {
+    const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(" ");
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(login({
+            username:username,
+            email:email,
+            password: password,
+            loggedIn: true,
+        }))
+
+    }
+
+
+
     return (
         <div>
             <StyledFormArea>
@@ -26,14 +51,15 @@ const Login = () => {
                 </StyledTitle>
                <Formik
                initialValues={{
-                email: "",
+                username: "",
                 password: "",
                }}
                validationSchema={
                 Yup.object({
+                    // name: Yup.string().username("Invailed Username").required("Required"),
                     email: Yup.string().email("Invailed Email Address")
                     .required("Required"),
-                    password: Yup.string().min(8, "Password Is Too Short").max(30, "Password is To Long")
+                    password: Yup.string().min(3, "Password Is Too Short").max(30, "Password is To Long")
                     .required("Required"),
                 })
                }
@@ -42,13 +68,44 @@ const Login = () => {
                }}
                >
                 {({isSubmitting}) => (
-                    <Form>
+                    <Form onSubmit={(e) => {
+                        // Get Request 
+                        // fetch("https://jsonplaceholder.typicode.com/posts", {
+     
+                        //     // Adding method type
+                        //     method: "POST",
+                             
+                        //     // Adding body or contents to send
+                        //     body: JSON.stringify({
+                        //         title: "foo",
+                        //         body: "bar",
+                        //         userId: 1
+                        //     }),
+                             
+                        //     // Adding headers to the request
+                        //     headers: {
+                        //         "Content-type": "application/json; charset=UTF-8"
+                        //     }
+                        // })
+                         
+                      const url = "https://eleox-interview-api-7n5su.ondigitalocean.app/login"
+                      const config = {method: "POST",headers: {
+                                "Content-type": "application/json; charset=UTF-8"
+                            },
+                            body: JSON.stringify({
+                                username: "int@eleox.com",
+                                password: "eleox",
+                            })
+                         }
+                        fetch(url,config)
+                        
+                        }}>
                         <TextInput 
-                        name="email"
+                        name="name"
                         type="text"
-                        label="Email Address"
-                        placeholder="smith@gmail.com"
-                        icon={<FiMail />}
+                        label="Username"
+                        placeholder="UserName"
+                        icon={<FiGlobe />}
                         />
 
                         <TextInput 
