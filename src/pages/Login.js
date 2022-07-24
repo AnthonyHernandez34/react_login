@@ -1,6 +1,10 @@
 //React
 import React,{useState} from 'react';
 
+//Axios
+import axios from 'axios';
+
+
 //Styled Components
 import {StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel, Avatar , StyledTitle , colors , ButtonGroup, ExtraText, TextLink , CopyrightText} from './../components/Styles';
 
@@ -25,6 +29,7 @@ const Login = () => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(" ");
+    const axios = require('axios').default;
 
     const dispatch = useDispatch();
 
@@ -39,9 +44,16 @@ const Login = () => {
         }))
 
     }
+//possible post for user using axios
 
-
-
+ // Send a POST request
+ const instance = axios.create({
+    baseURL: 'https://eleox-interview-api-7n5su.ondigitalocean.app/login',
+    timeout: 1000,
+    headers: {'X-Custom-Header': 'foobar'}
+  });
+    
+ 
     return (
         <div>
             <StyledFormArea>
@@ -98,8 +110,24 @@ const Login = () => {
                             })
                          }
                         fetch(url,config)
+
+                        const configUrl = {
+                            headers: { Authorization: `Bearer ${url}` }
+                        };
+                        
+                        const bodyParameters = {
+                           key: "value"
+                        };
+                        
+                        axios.post( 
+                          'https://eleox-interview-api-7n5su.ondigitalocean.app/get_token_payloads',
+                          bodyParameters,
+                          config
+                        ).then(console.log).catch(console.log);
+                        fetch(configUrl)
                         
                         }}>
+
                         <TextInput 
                         name="name"
                         type="text"
@@ -148,5 +176,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;

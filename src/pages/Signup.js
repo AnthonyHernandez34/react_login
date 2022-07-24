@@ -52,8 +52,8 @@ const Signup = () => {
                         <TextInput 
                         name="name"
                         type="text"
-                        label="Full Name"
-                        placeholder="Smith Jr"
+                        label="Username"
+                        placeholder="SmithJr"
                         icon={<FiUser />}
                         />
                         <TextInput 
