@@ -105,6 +105,7 @@ const Login = () => {
                         type="text"
                         label="Username"
                         placeholder="UserName"
+                        onChange={(e) => setUserName(e.target.vaules)}
                         icon={<FiGlobe />}
                         />
 
@@ -113,6 +114,8 @@ const Login = () => {
                         type="password"
                         label="Password"
                         placeholder="**********"
+                        //error wont allow input for password
+                        // onChange={(e) => setPassword(e.target.vaules)}
                         icon={<FiLock />}
                         />
 

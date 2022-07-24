@@ -44,4 +44,11 @@ My thought Process for the 2nd verison of the project was to put time-hacks for 
 
 This completes the setup for the web application.
 
+## Side Command
+
+To access Homepage "localhost3000"
+To access Dashboard "localhost3000/dashboard"
+To access Login "localhost3000/login"
+To access Signup "localhost3000/signup"
+
 If you have any further question please feel free to email me at [ants.hernandez@gmail.com]
