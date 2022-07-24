@@ -152,7 +152,7 @@ const Login = () => {
 
                         <ButtonGroup>
                             {!isSubmitting && (<StyledFormButton to="/dashboard" type="submit">
-                                Login
+                            Verification 
                             </StyledFormButton>
                             )}
 
@@ -164,12 +164,16 @@ const Login = () => {
                              width={100}
                              />
                             )}
-
                         </ButtonGroup>
                     </Form>
                 )}
                </Formik>
                <ExtraText>
+               <StyledFormButton>
+               <TextLink to="/dashboard">login</TextLink>
+               </StyledFormButton>
+                <br/>
+                <br/>
                 New Here? <TextLink to="/signup">Signup</TextLink>
                </ExtraText>
             </StyledFormArea>
