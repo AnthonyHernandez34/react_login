@@ -13,7 +13,7 @@ Side note you can click "Already a Member" (Login Button) This will Direct you t
 At the **Member Login Screen\*\* you will be given 2 input fields one asking for "username" and another that ask for "password"
 onces you click login you will be redirected to the Dashboard.
 
-\*Dashboard
+**Dashboard**
 Onces at dashbord you will be shown what user is logged-in and the option to logout.
 
 ---
