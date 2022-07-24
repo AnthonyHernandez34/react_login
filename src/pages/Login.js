@@ -111,6 +111,9 @@ const Login = () => {
                          }
                         fetch(url,config)
 
+
+                        //possible access token
+
                         const configUrl = {
                             headers: { Authorization: `Bearer ${url}` }
                         };
@@ -148,7 +151,7 @@ const Login = () => {
                         />
 
                         <ButtonGroup>
-                            {!isSubmitting && (<StyledFormButton type="submit">
+                            {!isSubmitting && (<StyledFormButton to="/dashboard" type="submit">
                                 Login
                             </StyledFormButton>
                             )}

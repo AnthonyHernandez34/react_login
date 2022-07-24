@@ -19,6 +19,7 @@ export const colors ={
 }
 
 
+
 //styled component
 export const StyledContainer = styled.div`
 margin: 0;

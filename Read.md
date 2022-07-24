@@ -38,7 +38,7 @@ My thought Process for the 2nd verison of the project was to put time-hacks for 
 
 4.  We moved to the sign-up page that would allow text-input for data stoarge of each user that register for the website.
 
-5.  Onces we have the back-end set up for login and register and proper API calls, we can now move to showing data on the "dashboard'
+5.  Onces we have the back-end set up for login and register and proper API calls and retrive toke for access, we can now move to showing data on the "dashboard'
 
 6.  Dashboard will give the rendered information from the back-end and a logout option for user.
 
