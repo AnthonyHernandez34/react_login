@@ -1,5 +1,6 @@
 //React
 import React,{useState} from 'react';
+import { useHistory } from "react-router-dom";
 
 //Axios
 import axios from 'axios';
@@ -23,6 +24,7 @@ import {FiGlobe,FiLock} from 'react-icons/fi';
 import {ThreeDots} from 'react-loader-spinner';
 import { useDispatch } from 'react-redux';
 import { login } from '../features/userSlice';
+import { Redirect } from 'react-router-dom';
 
 
 const Login = () => {
@@ -30,6 +32,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(" ");
     const axios = require('axios').default;
+    const history = useHistory();
 
     const dispatch = useDispatch();
 
@@ -39,7 +42,7 @@ const Login = () => {
         dispatch(login({
             username:username,
             email:email,
-            password: password,
+            password:password,
             loggedIn: true,
         }))
 
@@ -75,8 +78,9 @@ const Login = () => {
                     .required("Required"),
                 })
                }
-               onSubmit={(vaules, {setSubmitting}) => {
-                console.log(vaules);
+               onSubmit={(value, {setSubmitting}) => {
+                setSubmitting(true)
+                console.log(value);
                }}
                >
                 {({isSubmitting}) => (
@@ -99,19 +103,24 @@ const Login = () => {
                         //         "Content-type": "application/json; charset=UTF-8"
                         //     }
                         // })
-                         
+                       e.preventDefault()   
                       const url = "https://eleox-interview-api-7n5su.ondigitalocean.app/login"
-                      const config = {method: "POST",headers: {
+                      const config = {method: "POST", headers: {
                                 "Content-type": "application/json; charset=UTF-8"
                             },
                             body: JSON.stringify({
-                                username: "int@eleox.com",
-                                password: "eleox",
+                                username: username,
+                                password: password,
                             })
                          }
-                        fetch(url,config)
-
-
+                         fetch(url,config).then((response) => response.json())
+                         .then((data) => {
+                            history.push("/dashboard");  
+                           console.log('Success:', data);
+                         })
+                         .catch((error) => {
+                           console.error('Error:', error);
+                         });
                         //possible access token
 
                         const configUrl = {
@@ -130,29 +139,33 @@ const Login = () => {
                         fetch(configUrl)
                         
                         }}>
+                        
 
                         <TextInput 
                         name="name"
                         type="text"
                         label="Username"
                         placeholder="UserName"
-                        onChange={(e) => setUserName(e.target.vaules)}
+                        value={username}
+                        onChange={(event) => setUserName(event.target.value)}
                         icon={<FiGlobe />}
                         />
 
                         <TextInput 
                         name="password"
-                        type="password"
+                        type="passwrod"
                         label="Password"
+                        value={password}
                         placeholder="**********"
-                        //error wont allow input for password
-                        // onChange={(e) => setPassword(e.target.vaules)}
+                        onChange={(e) => setPassword(e.target.value)}
                         icon={<FiLock />}
                         />
 
+                        {/* input area read the responces and give a fail for non-pass */}
+
                         <ButtonGroup>
-                            {!isSubmitting && (<StyledFormButton to="/dashboard" type="submit">
-                            Verification 
+                            {!isSubmitting && (<StyledFormButton type="submit">
+                            Login
                             </StyledFormButton>
                             )}
 
@@ -169,11 +182,11 @@ const Login = () => {
                 )}
                </Formik>
                <ExtraText>
-               <StyledFormButton>
+               {/* <StyledFormButton>
                <TextLink to="/dashboard">login</TextLink>
-               </StyledFormButton>
-                <br/>
-                <br/>
+               </StyledFormButton> */}
+                {/* <br/>
+                <br/> */}
                 New Here? <TextLink to="/signup">Signup</TextLink>
                </ExtraText>
             </StyledFormArea>

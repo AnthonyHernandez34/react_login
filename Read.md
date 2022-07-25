@@ -9,8 +9,8 @@ once you click the(Signup Button) the data for User will be stored from here you
 
 Side note you can click "Already a Member" (Login Button) This will Direct you to the login portion of the webpage.
 
-** Login
-At the **Member Login Screen\*\* you will be given 2 input fields one asking for "username" and another that ask for "password"
+**Login**
+At the \*\*Member Login Screen\*\* you will be given 2 input fields one asking for "username" and another that ask for "password"
 onces you click login you will be redirected to the Dashboard.
 
 **Dashboard**
