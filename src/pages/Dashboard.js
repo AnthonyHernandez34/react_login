@@ -1,12 +1,10 @@
 //CSS and Style
 import "./../components/Card.css"
-import { StyledTitle, StyledSubTitle, Avatar, StyledButton, ButtonGroup, StyledFormArea, colors } from "../components/Styles";
+import { StyledTitle, Avatar, StyledButton, ButtonGroup, StyledFormArea, colors } from "../components/Styles";
 //logo
 import Logo from "./../assets/logo.png"
 import Headshot from "./../assets/headshot.png"
 
-//auth & logout didn't use but setup for it is in files
-import { connect } from "react-redux";
 
 const Dashboard = () => {
     return (

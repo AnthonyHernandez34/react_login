@@ -2,12 +2,9 @@
 import React,{useState} from 'react';
 import { useHistory } from "react-router-dom";
 
-//Axios
-import axios from 'axios';
-
 
 //Styled Components
-import {StyledTextInput, StyledFormArea, StyledFormButton, StyledLabel, Avatar , StyledTitle , colors , ButtonGroup, ExtraText, TextLink , CopyrightText} from './../components/Styles';
+import {StyledFormArea, StyledFormButton,Avatar , StyledTitle , colors , ButtonGroup, ExtraText, TextLink , CopyrightText} from './../components/Styles';
 
 //logo import
 import Logo from './../assets/logo.png'
@@ -24,16 +21,15 @@ import {FiGlobe,FiLock} from 'react-icons/fi';
 import {ThreeDots} from 'react-loader-spinner';
 import { useDispatch } from 'react-redux';
 import { login } from '../features/userSlice';
-import { Redirect } from 'react-router-dom';
+
 
 
 const Login = () => {
     const [username, setUserName] = useState("");
-    const [email, setEmail] = useState("");
+    const [email] = useState("");
     const [password, setPassword] = useState(" ");
     const axios = require('axios').default;
     const history = useHistory();
-
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -47,16 +43,7 @@ const Login = () => {
         }))
 
     }
-//possible post for user using axios
 
- // Send a POST request
- const instance = axios.create({
-    baseURL: 'https://eleox-interview-api-7n5su.ondigitalocean.app/login',
-    timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'}
-  });
-    
- 
     return (
         <div>
             <StyledFormArea>
@@ -71,7 +58,6 @@ const Login = () => {
                }}
                validationSchema={
                 Yup.object({
-                    // name: Yup.string().username("Invailed Username").required("Required"),
                     email: Yup.string().email("Invailed Email Address")
                     .required("Required"),
                     password: Yup.string().min(3, "Password Is Too Short").max(30, "Password is To Long")
@@ -85,24 +71,6 @@ const Login = () => {
                >
                 {({isSubmitting}) => (
                     <Form onSubmit={(e) => {
-                        // Get Request 
-                        // fetch("https://jsonplaceholder.typicode.com/posts", {
-     
-                        //     // Adding method type
-                        //     method: "POST",
-                             
-                        //     // Adding body or contents to send
-                        //     body: JSON.stringify({
-                        //         title: "foo",
-                        //         body: "bar",
-                        //         userId: 1
-                        //     }),
-                             
-                        //     // Adding headers to the request
-                        //     headers: {
-                        //         "Content-type": "application/json; charset=UTF-8"
-                        //     }
-                        // })
                        e.preventDefault()   
                       const url = "https://eleox-interview-api-7n5su.ondigitalocean.app/login"
                       const config = {method: "POST", headers: {
@@ -121,6 +89,7 @@ const Login = () => {
                          .catch((error) => {
                            console.error('Error:', error);
                          });
+
                         //possible access token
 
                         const configUrl = {
