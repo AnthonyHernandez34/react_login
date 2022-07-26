@@ -19,30 +19,11 @@ import {FiGlobe,FiLock} from 'react-icons/fi';
 
 //Loader
 import {ThreeDots} from 'react-loader-spinner';
-import { useDispatch } from 'react-redux';
-import { login } from '../features/userSlice';
-
-
 
 const Login = () => {
     const [username, setUserName] = useState("");
-    const [email] = useState("");
     const [password, setPassword] = useState(" ");
-    const axios = require('axios').default;
     const history = useHistory();
-    const dispatch = useDispatch();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        dispatch(login({
-            username:username,
-            email:email,
-            password:password,
-            loggedIn: true,
-        }))
-
-    }
 
     return (
         <div>
@@ -58,14 +39,15 @@ const Login = () => {
                }}
                validationSchema={
                 Yup.object({
-                    email: Yup.string().email("Invailed Email Address")
+                    email: Yup.string().email("Invalided Email Address")
                     .required("Required"),
                     password: Yup.string().min(3, "Password Is Too Short").max(30, "Password is To Long")
                     .required("Required"),
                 })
                }
                onSubmit={(value, {setSubmitting}) => {
-                setSubmitting(true)
+                   history.push("/dashboard");
+                   setSubmitting(true)
                 console.log(value);
                }}
                >
@@ -83,32 +65,14 @@ const Login = () => {
                          }
                          fetch(url,config).then((response) => response.json())
                          .then((data) => {
-                            history.push("/dashboard");  
+                             history.push("/dashboard");
                            console.log('Success:', data);
                          })
                          .catch((error) => {
                            console.error('Error:', error);
                          });
-
-                        //possible access token
-
-                        const configUrl = {
-                            headers: { Authorization: `Bearer ${url}` }
-                        };
-                        
-                        const bodyParameters = {
-                           key: "value"
-                        };
-                        
-                        axios.post( 
-                          'https://eleox-interview-api-7n5su.ondigitalocean.app/get_token_payloads',
-                          bodyParameters,
-                          config
-                        ).then(console.log).catch(console.log);
-                        fetch(configUrl)
-                        
                         }}>
-                        
+
 
                         <TextInput 
                         name="name"
@@ -151,11 +115,6 @@ const Login = () => {
                 )}
                </Formik>
                <ExtraText>
-               {/* <StyledFormButton>
-               <TextLink to="/dashboard">login</TextLink>
-               </StyledFormButton> */}
-                {/* <br/>
-                <br/> */}
                 New Here? <TextLink to="/signup">Signup</TextLink>
                </ExtraText>
             </StyledFormArea>
