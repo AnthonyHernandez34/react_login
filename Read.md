@@ -7,6 +7,8 @@ Start of site Navigation will be "Homepage", While at Homepage you will be give 
 **Onclick** for **Signup** will direct you to Route page Signup onces at here for "Membership signup" you will be giving a form box with the opiton to input text this text boxes will include Fullname, Email Address , DOB , Password and Repeat Password.
 once you click the(Signup Button) the data for User will be stored from here you will be Moved to Route Dashboard.
 
+**Purpose** I wanted to show the format for a signup sheet, the signup form still allows for errors and input to work. I am missing a connect to back-end to store data for the signup form. I wanted to show the React styling formats that make it a more appealing mondern format.
+
 Side note you can click "Already a Member" (Login Button) This will Direct you to the login portion of the webpage.
 
 **Login**
