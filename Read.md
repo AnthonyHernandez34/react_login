@@ -5,7 +5,7 @@ Start of site Navigation will be "Homepage", While at Homepage you will be give 
 ## Signup
 
 **Onclick** for **Signup** will direct you to Route page Signup onces at here for "Membership signup" you will be giving a form box with the opiton to input text this text boxes will include Fullname, Email Address , DOB , Password and Repeat Password.
-once you click the(Signup Button) the data for User will be stored from here you will be Moved to Route Login.
+once you click the(Signup Button) the data for User will be stored from here you will be Moved to Route Dashboard.
 
 Side note you can click "Already a Member" (Login Button) This will Direct you to the login portion of the webpage.
 
@@ -13,10 +13,19 @@ Side note you can click "Already a Member" (Login Button) This will Direct you t
 At the \*\*Member Login Screen\*\* you will be given 2 input fields one asking for "username" and another that ask for "password"
 onces you click login you will be redirected to the Dashboard.
 
+**Purpose**
+Login Page will return access token and errors for not being able to login you will get a (200) if you put in password correct if not error.
+As of right now both will redirect you to dashboard inorder to allow you to preview the dashboard.
+
+
 **Dashboard**
 Onces at dashbord you will be shown what user is logged-in and the option to logout.
+**Purpose** 
+Is to show a user and user avatar from back-end api with the command to logout and return to homepage. 
 
 ---
+
+
 
 ## Project implenting
 
