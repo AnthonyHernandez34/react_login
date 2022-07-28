@@ -31,7 +31,7 @@ Is to show a user and user avatar from back-end api with the command to logout a
 
 ## Project implenting
 
-I will be showing you how to create a project A login that is implementing React Js and Node Js from scratch. Formik, Redux, Styled-components, Yup, Axios and other packages are used and then connected to a node js backend.
+I will be showing you how to create a project A login that is implementing React Js and Node Js from scratch. Formik, Redux, Styled-components, Yup and other packages are used and then connected to a node js backend.
 
 During the start of this Project being fairly new to react I had to understand the basic before pushing forward through the project.
 This consisted of planning the layout of the project and deveoplment of a storyboard/wireframe/speed-run for timetables.
