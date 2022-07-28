@@ -97,7 +97,7 @@ const Login = () => {
 
                             <TextInput
                                 name="password"
-                                type="passwrod"
+                                type="password5"
                                 label="Password"
                                 value={password}
                                 placeholder="**********"
