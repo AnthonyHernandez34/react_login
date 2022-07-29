@@ -1,6 +1,10 @@
 ## Site Movement
 
-Start of site Navigation will be "Homepage", While at Homepage you will be give in the option to **login** or **signup**
+Start of site Navigation will be **Homepage**, While at Homepage you will be give in the option to **login** or **signup**
+
+## Provided structure 
+The structure for the app will be shown in a wireframe and storyboard in file process 
+
 
 ## Signup
 
